@@ -4,4 +4,5 @@ type ApiGroup struct {
 	StudentApi
 	TeacherApi
 	CourseApi
+	DepartmentApi
 }

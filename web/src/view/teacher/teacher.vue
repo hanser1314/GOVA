@@ -19,8 +19,47 @@
           <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
           <el-button icon="refresh" @click="onReset">重置</el-button>
         </el-form-item>
+
+        <el-form-item>
+          <el-input
+           placeholder="姓名"
+           v-model="searchInfo.tname"
+           type="text"
+           clearable
+            >
+                <template #prefix>
+                  <el-icon class="el-input__icon"><search /></el-icon>
+                </template>
+              </el-input>
+     
+        </el-form-item>
+
+        <el-form-item>
+          <el-input
+           placeholder="教工号"
+           v-model="searchInfo.tno"
+           type="text"
+           clearable
+            >
+                <template #prefix>
+                  <el-icon class="el-input__icon"><search /></el-icon>
+                </template>
+              </el-input>
+     
+        </el-form-item>
+       
+
+        <el-form-item>
+          <el-button type="primary" icon="search" @click="handleQuery">查询2</el-button>
+        </el-form-item>
+
+
+
       </el-form>
+
     </div>
+
+
     <div class="gva-table-box">
         <div class="gva-btn-list">
             <el-button type="primary" icon="plus" @click="openDialog">新增</el-button>
@@ -34,13 +73,20 @@
                 <el-button icon="delete" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="deleteVisible = true">删除</el-button>
             </template>
             </el-popover>
+
+               <el-button type="success" icon="Printer" @click="onPrint">打印</el-button>
+
         </div>
+
         <el-table
+        stripe =true
+        border =true
         ref="multipleTable"
         style="width: 100%"
         tooltip-effect="dark"
         :data="tableData"
         row-key="ID"
+        id="box"
         @selection-change="handleSelectionChange"
         @sort-change="sortChange"
         >
@@ -67,7 +113,11 @@
             <el-button type="primary" link icon="delete" @click="deleteRow(scope.row)">删除</el-button>
             </template>
         </el-table-column>
+
+
         </el-table>
+
+
         <div class="gva-pagination">
             <el-pagination
             layout="total, sizes, prev, pager, next, jumper"
@@ -80,6 +130,9 @@
             />
         </div>
     </div>
+
+
+
     <el-dialog v-model="dialogFormVisible" :before-close="closeDialog" :title="type==='create'?'添加':'修改'" destroy-on-close>
       <el-scrollbar height="500px">
           <el-form :model="formData" label-position="right" ref="elFormRef" :rules="rule" label-width="80px">
@@ -163,17 +216,33 @@ import {
   deleteTeacherByIds,
   updateTeacher,
   findTeacher,
-  getTeacherList
+  getTeacherList,
+  getTeacherByNameOrTno
 } from '@/api/teacher'
 
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict, ReturnArrImg, onDownloadFile } from '@/utils/format'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive } from 'vue'
+import printJS from 'print-js'
 
 defineOptions({
     name: 'Teacher'
 })
+
+//打印按钮
+const onPrint = () => {
+  //获取元素
+  // const node = multipleTable.value;
+  printJS({
+    printable: "box", // 标签元素id
+    type: "html",
+    targetStyles: ["*"], //添加样式
+    // scanStyles: false
+  });
+};
+
+
 
 // 自动化生成的字典（可能为空）以及字段
 const formData = ref({
@@ -302,6 +371,12 @@ const onSubmit = () => {
   })
 }
 
+const handleQuery = () => {
+          page.value = 1
+          pageSize.value = 10
+          getTableDataByNameOrTno()
+}
+
 // 分页
 const handleSizeChange = (val) => {
   pageSize.value = val
@@ -324,6 +399,18 @@ const getTableData = async() => {
     pageSize.value = table.data.pageSize
   }
 }
+
+
+const getTableDataByNameOrTno = async() => {
+    const table = await getTeacherByNameOrTno({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
+    if (table.code === 0) {
+      tableData.value = table.data.list
+      total.value = table.data.total
+      page.value = table.data.page
+      pageSize.value = table.data.pageSize
+    }
+}
+
 
 getTableData()
 

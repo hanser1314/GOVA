@@ -4,4 +4,5 @@ type ServiceGroup struct {
 	StudentService
 	TeacherService
 	CourseService
+	DepartmentService
 }

@@ -15,8 +15,11 @@ export const useUserStore = defineStore('user', () => {
     headerImg: '',
     authority: {},
     sideMode: 'dark',
+    // sideMode: 'light',
     activeColor: 'var(--el-color-primary)',
     baseColor: '#fff'
+    // baseColor: '#FFC0CB'
+
   })
   const token = ref(window.localStorage.getItem('token') || '')
   const setUserInfo = (val) => {
@@ -143,7 +146,7 @@ export const useUserStore = defineStore('user', () => {
       })
     }
   }
-
+//侧边栏颜色修改
   const mode = computed(() => userInfo.value.sideMode)
   const sideMode = computed(() => {
     if (userInfo.value.sideMode === 'dark') {
@@ -163,6 +166,26 @@ export const useUserStore = defineStore('user', () => {
       return userInfo.value.baseColor
     }
   })
+
+  //   const sideMode = computed(() => {
+  //   if (userInfo.value.sideMode === 'dark') {
+  //     return '#191a23'
+  //   } else if (userInfo.value.sideMode === 'light') {
+  //     return '#FFC0CB'
+  //   } else {
+  //     return userInfo.value.sideMode
+  //   }
+  // })
+  // const baseColor = computed(() => {
+  //   if (userInfo.value.sideMode === 'dark') {
+  //     return '#FFC0CB'
+  //   } else if (userInfo.value.sideMode === 'light') {
+  //     return '#191a23'
+  //   } else {
+  //     return userInfo.value.baseColor
+  //   }
+  // })
+
   const activeColor = computed(() => {
     return 'var(--el-color-primary)'
   })

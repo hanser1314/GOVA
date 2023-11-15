@@ -5,13 +5,14 @@ import (
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
 )
 
-type StudentSearchByName struct {
-	InfoQuire.Student
+type TeacherSearchByNameOrTno struct {
+	InfoQuire.Teacher
 	//StartCreatedAt *time.Time `json:"startCreatedAt" form:"startCreatedAt"`
 	//EndCreatedAt   *time.Time `json:"endCreatedAt" form:"endCreatedAt"`
 
-	Sname string `json:"sname" form:"sname"`
-	Sage  int8   `json:"sage" form:"sage"`
-	//sno string `json:"sno" form:"sno"`
+	Tname string `json:"tname" form:"tname"`
+	Tno   string `json:"tno" form:"tno"`
 	request.PageInfo
+	Sort  string `json:"sort" form:"sort"`
+	Order string `json:"order" form:"order"`
 }

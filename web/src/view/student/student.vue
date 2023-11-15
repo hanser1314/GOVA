@@ -24,7 +24,7 @@
 
         <el-form-item>
           <el-input
-           placeholder="Type something"
+           placeholder="姓名"
            v-model="searchInfo.sname"
            type="text"
            clearable
@@ -38,7 +38,7 @@
 
         <el-form-item>
           <el-input
-           placeholder="Type something"
+           placeholder="年龄"
            v-model="searchInfo.sage"
            type="text"
            clearable
@@ -237,8 +237,6 @@ import { getDictFunc, formatDate, formatBoolean, filterDict, ReturnArrImg, onDow
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive } from 'vue'
 import printJS from 'print-js'
-
-
 
 
 defineOptions({

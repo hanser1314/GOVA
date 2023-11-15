@@ -77,14 +77,14 @@ func (studentService *StudentService) GetStudentInfoListByName(info InfoQuireReq
 	db := global.GVA_DB.Model(&InfoQuire.Student{})
 	var students []InfoQuire.Student
 	// 如果有条件搜索 下方会自动创建搜索语句
-	if info.Sname != nil && info.Sage != nil {
-		db = db.Where("sname like '%?%' or sage = ?", info.Sage)
+	if info.Sname != "" && info.Sage != 0 {
+		db = db.Where("sname = ? or sage = ?", info.Sname, info.Sage)
 	}
-	if info.Sname == nil && info.Sage != nil {
+	if info.Sname == "" && info.Sage != 0 {
 		db = db.Where("sage = ?", info.Sage)
 	}
-	if info.Sname != nil && info.Sage == nil {
-		db = db.Where("sname like '%?%' ")
+	if info.Sname != "" {
+		db = db.Where("sname = ? ", info.Sname)
 	}
 	err = db.Count(&total).Error
 	if err != nil {
