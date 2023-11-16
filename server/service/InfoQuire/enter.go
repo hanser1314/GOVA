@@ -5,4 +5,5 @@ type ServiceGroup struct {
 	TeacherService
 	CourseService
 	DepartmentService
+	SctService
 }

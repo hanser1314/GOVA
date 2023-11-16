@@ -5,4 +5,5 @@ type ApiGroup struct {
 	TeacherApi
 	CourseApi
 	DepartmentApi
+	SctApi
 }

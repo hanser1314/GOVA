@@ -5,4 +5,5 @@ type RouterGroup struct {
 	TeacherRouter
 	CourseRouter
 	DepartmentRouter
+	SctRouter
 }
