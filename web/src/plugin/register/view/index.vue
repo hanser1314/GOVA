@@ -153,7 +153,7 @@ const register = async () => {
   return await userStore.Register(loginFormData)
 }
 const submitForm = () => {
-  loginForm.value.validate(async (v) => {
+  loginForm.value.validate(async(v) => {
     if (v) {
       let flag
       if (loginType.status) {
@@ -178,7 +178,7 @@ const submitForm = () => {
 }
 
 // 跳转初始化
-const checkInit = async () => {
+const checkInit = async() => {
   const res = await checkDB()
   if (res.code === 0) {
     if (res.data?.needInit) {

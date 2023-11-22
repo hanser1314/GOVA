@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ref } from 'vue'
 
 const weatherInfo = ref('今日晴，0℃ - 10℃，天气寒冷，注意添加衣物。')
-const amapKey = '8e8baa8a7317586c29ec694895de6e0a'
+const amapKey = 'e20d1147c446d6d041e20c599ceb1c68'
 
 export const useWeatherInfo = () => {
   ip()
@@ -16,6 +16,7 @@ export const ip = async() => {
     return false
   }
   const res = await axios.get('https://restapi.amap.com/v3/ip?key=' + amapKey)
+
   if (res.data.adcode) {
     getWeather(res.data.adcode)
   }

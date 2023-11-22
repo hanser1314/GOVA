@@ -180,6 +180,8 @@ import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/pinia/modules/user'
 
+import { ElNotification } from 'element-plus'
+
 defineOptions({
   name: 'Login',
 })
@@ -246,7 +248,9 @@ const userStore = useUserStore()
 const login = async() => {
   return await userStore.LoginIn(loginFormData)
 }
+// 注册函数
 const register = async() => {
+  openRegister()
   return await userStore.Register(loginFormData)
 }
 const submitForm = () => {
@@ -282,6 +286,15 @@ const checkInit = async() => {
       })
     }
   }
+}
+
+// 注册成功按钮
+const openRegister = () => {
+  ElNotification({
+    title: '注册成功',
+    message: '正在进入系统...',
+    position: 'bottom-right',
+  })
 }
 
 </script>

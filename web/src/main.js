@@ -22,13 +22,14 @@ initDom()
  * */
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+// import { ElementPlus } from '@element-plus/icons-vue/dist/types'
 Nprogress.configure({ showSpinner: false, ease: 'ease', speed: 500 })
 Nprogress.start()
 
 /**
  * 无需在这块结束，会在路由中间件中结束此块内容
  * */
-
+// event Bus 用于无关系组件间的通信。
 const app = createApp(App)
 app.config.productionTip = false
 
