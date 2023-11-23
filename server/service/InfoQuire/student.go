@@ -19,8 +19,13 @@ func (studentService *StudentService) CreateStudent(student *InfoQuire.Student) 
 
 // DeleteStudent 删除student表记录
 // Author [piexlmax](https://github.com/piexlmax)
+//
+//	func (studentService *StudentService) DeleteStudent(student InfoQuire.Student) (err error) {
+//		err = global.GVA_DB.Delete(&student).Error
+//		return err
+//	}
 func (studentService *StudentService) DeleteStudent(student InfoQuire.Student) (err error) {
-	err = global.GVA_DB.Delete(&student).Error
+	err = global.GVA_DB.Unscoped().Delete(&student).Error
 	return err
 }
 

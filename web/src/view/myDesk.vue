@@ -93,6 +93,26 @@
         </div>
       </div>
     </div>
+
+    <div class="gva-card">
+        <div class="gva-card-title">数据统计</div>
+        <div class="p-4">
+          <el-row :gutter="20">
+            <el-col
+              :xs="24"
+              :sm="18"
+            >
+              <echarts-line />
+            </el-col>
+            <el-col
+              :xs="24"
+              :sm="6"
+            >
+              <dashboard-table />
+            </el-col>
+          </el-row>
+        </div>
+      </div>
   </div>
 </template>
   
