@@ -32,7 +32,7 @@ func (studentService *StudentService) DeleteStudent(student InfoQuire.Student) (
 // DeleteStudentByIds 批量删除student表记录
 // Author [piexlmax](https://github.com/piexlmax)
 func (studentService *StudentService) DeleteStudentByIds(ids request.IdsReq) (err error) {
-	err = global.GVA_DB.Delete(&[]InfoQuire.Student{}, "id in ?", ids.Ids).Error
+	err = global.GVA_DB.Unscoped().Delete(&[]InfoQuire.Student{}, "id in ?", ids.Ids).Error
 	return err
 }
 
@@ -83,14 +83,38 @@ func (studentService *StudentService) GetStudentInfoListByName(info InfoQuireReq
 	var students []InfoQuire.Student
 	// 如果有条件搜索 下方会自动创建搜索语句
 	if info.Sname != "" && info.Sage != 0 {
-		db = db.Where("sname = ? or sage = ?", info.Sname, info.Sage)
+		db = db.Where("sname like ? or sage = ?", "%"+info.Sname+"%", info.Sage)
 	}
 	if info.Sname == "" && info.Sage != 0 {
 		db = db.Where("sage = ?", info.Sage)
 	}
 	if info.Sname != "" {
-		db = db.Where("sname = ? ", info.Sname)
+		db = db.Where("sname like ?", "%"+info.Sname+"%")
 	}
+	err = db.Count(&total).Error
+	if err != nil {
+		return
+	}
+
+	if limit != 0 {
+		db = db.Limit(limit).Offset(offset)
+	}
+
+	err = db.Find(&students).Error
+	return students, total, err
+}
+
+func (studentService *StudentService) GetStudentInfoListBySno(info InfoQuireReq.StudentSearchBySno) (list []InfoQuire.Student, total int64, err error) {
+	limit := info.PageSize
+	offset := info.PageSize * (info.Page - 1)
+	// 创建db
+	db := global.GVA_DB.Model(&InfoQuire.Student{})
+	var students []InfoQuire.Student
+	// 如果有条件搜索 下方会自动创建搜索语句
+	if info.Sno != "" {
+		db = db.Where("sno = ? ", info.Sno)
+	}
+
 	err = db.Count(&total).Error
 	if err != nil {
 		return

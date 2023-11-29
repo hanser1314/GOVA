@@ -3,7 +3,7 @@
     <div class="gva-card-box">
       <div class="gva-card gva-top-card">
         <div class="gva-top-card-left">
-          <div class="gva-top-card-left-title">早安，{{ username }}，请开始一天的工作吧</div>
+          <div class="gva-top-card-left-title">欢迎，{{ username }}，请开始一天的工作吧</div>
           <div class="gva-top-card-left-dot">{{ weatherInfo }}</div>
           <el-row class="my-8 w-[500px]">
             <el-col :span="8" :xs="24" :sm="8">
@@ -67,10 +67,11 @@
         </el-row>
       </div>
     </div>
-    <div class="gva-card-box">
+
+    <!-- <div class="gva-card-box">
       <div class="gva-card">
         <div class="gva-card-title">数据统计</div>
-        <div class="p-4">
+        <div class="p-4"> -->
           <!-- <el-row :gutter="20"> -->
             <!-- <el-col :xs="24" :sm="18"> -->
             
@@ -83,16 +84,16 @@
             <!-- <videoplay />
               <videoplay />
               <videoplay /> -->
-              <el-carousel :interval="4000" type="card" height="600px">
-                  <el-carousel-item v-for="item in 6" :key="item">
+              <!-- <el-carousel :interval="4000" type="card" height="600px">
+                  <el-carousel-item v-for="item in 6" :key="item"> -->
                     <!-- <h3 text="2xl" justify="center">{{ item }}</h3> -->
-                    <videoplay />
-                  </el-carousel-item>
-                </el-carousel>
+                    <!-- <videoplay /> -->
+                  <!-- </el-carousel-item> -->
+                <!-- </el-carousel> -->
           <!-- </el-row> -->
-        </div>
-      </div>
-    </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
 
     <div class="gva-card">
         <div class="gva-card-title">数据统计</div>
@@ -138,7 +139,8 @@ const weatherInfo = useWeatherInfo()
 const username = ref('')
 const userStore = useUserStore()
 
-username.value = userStore.userInfo.authority.authorityName
+// username.value = userStore.userInfo.authority.authorityName
+username.value = userStore.userInfo.userName
 // const toolCards = ref([
 //   {
 //     label: '用户管理',

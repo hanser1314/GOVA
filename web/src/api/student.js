@@ -95,10 +95,19 @@ export const getStudentList = (params) => {
     params
   })
 }
-
+// 根据学生姓名和年龄获取student表列表
 export const getStudentByName = (params) => {
   return service({
     url: '/student/getStudentByName',
+    method: 'get',
+    params
+  })
+}
+
+// 根据学生学号获取student表列表
+export const getStudentBySno = (params) => {
+  return service({
+    url: '/student/getStudentBySno',
     method: 'get',
     params
   })

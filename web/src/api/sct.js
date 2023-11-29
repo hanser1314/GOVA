@@ -95,3 +95,11 @@ export const getSctList = (params) => {
     params
   })
 }
+
+export const getSctByUsername = (params) => {
+  return service({
+    url: '/sct/getSctListByUsername',
+    method: 'get',
+    params
+  })
+}

@@ -112,7 +112,8 @@
         <el-table
         stripe =true
         border =true
-        v-loading="loading"
+        size = large
+        empty-text
         ref="multipleTable"
         style="width: 100%"
         tooltip-effect="dark"
@@ -121,8 +122,6 @@
         @selection-change="handleSelectionChange"
         id="box"
         >
-       
-      
         <el-table-column type="selection" width="55" />
         <el-table-column align="left" label="日期" width="180">
             <template #default="scope">{{ formatDate(scope.row.CreatedAt) }}</template>
@@ -178,9 +177,11 @@
             <el-form-item label="姓名:"  prop="sname" >
               <el-input v-model="formData.sname" :clearable="true"  placeholder="请输入姓名" />
             </el-form-item>
-            <el-form-item label="性别:"  prop="ssex" >
-              <el-input v-model="formData.ssex" :clearable="true"  placeholder="请输入性别" />
-            </el-form-item>
+             <el-form-item label="性别:" prop="ssex"> 
+              <el-select v-model="formData.ssex" placeholder="请选择性别"> 
+              <el-option label="男" value="男"></el-option> <el-option label="女" value="女"></el-option> 
+              </el-select> 
+              </el-form-item>
             <el-form-item label="年龄:"  prop="sage" >
               <el-input v-model.number="formData.sage" :clearable="true" placeholder="请输入年龄" />
             </el-form-item>
@@ -246,19 +247,18 @@ defineOptions({
 const multipleTable = ref(null)
 const loading = ref(true)
 
-//打印按钮
+// 打印按钮
 const onPrint = () => {
-  //获取元素
+  // 获取元素
   // const node = multipleTable.value;
   printJS({
-    printable: "box", // 标签元素id
-    type: "html",
-    targetStyles: ["*"], //添加样式
+    printable: 'box', // 标签元素id
+    type: 'html',
+    targetStyles: ['*'], // 添加样式
+    maxWidth: '1000px'
     // scanStyles: false
-  });
-};
-
-
+  })
+}
 
 // 自动化生成的字典（可能为空）以及字段
 const formData = ref({

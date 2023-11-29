@@ -167,6 +167,7 @@ export const getUserInfo = () => {
   })
 }
 
+
 export const resetPassword = (data) => {
   return service({
     url: '/user/resetPassword',
@@ -174,3 +175,6 @@ export const resetPassword = (data) => {
     data: data
   })
 }
+
+
+// export const getUser

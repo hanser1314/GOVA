@@ -36,6 +36,10 @@
             </el-popover>
         </div>
         <el-table
+        stripe =true
+        border = true
+        size = large
+        empty-text
         ref="multipleTable"
         style="width: 100%"
         tooltip-effect="dark"
@@ -134,6 +138,9 @@ import {
 import { getDictFunc, formatDate, formatBoolean, filterDict, ReturnArrImg, onDownloadFile } from '@/utils/format'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive } from 'vue'
+
+
+
 
 defineOptions({
     name: 'Sct'

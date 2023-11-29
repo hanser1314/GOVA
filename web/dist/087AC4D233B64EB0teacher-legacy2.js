@@ -1,4 +1,0 @@
-/*! 
- Build based on gin-vue-admin 
- Time : 1700123686000 */
-System.register(["./087AC4D233B64EB0index-legacy.js"],(function(e,t){"use strict";var r;return{setters:[function(e){r=e.U}],execute:function(){e("c",(function(e){return r({url:"/teacher/createTeacher",method:"post",data:e})})),e("b",(function(e){return r({url:"/teacher/deleteTeacher",method:"delete",data:e})})),e("d",(function(e){return r({url:"/teacher/deleteTeacherByIds",method:"delete",data:e})})),e("u",(function(e){return r({url:"/teacher/updateTeacher",method:"put",data:e})})),e("f",(function(e){return r({url:"/teacher/findTeacher",method:"get",params:e})})),e("g",(function(e){return r({url:"/teacher/getTeacherList",method:"get",params:e})})),e("a",(function(e){return r({url:"/teacher/getTeacherByNameOrTno",method:"get",params:e})}))}}}));

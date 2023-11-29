@@ -20,14 +20,14 @@ func (teacherService *TeacherService) CreateTeacher(teacher *InfoQuire.Teacher) 
 // DeleteTeacher 删除教师表记录
 // Author [piexlmax](https://github.com/piexlmax)
 func (teacherService *TeacherService) DeleteTeacher(teacher InfoQuire.Teacher) (err error) {
-	err = global.GVA_DB.Delete(&teacher).Error
+	err = global.GVA_DB.Unscoped().Delete(&teacher).Error
 	return err
 }
 
 // DeleteTeacherByIds 批量删除教师表记录
 // Author [piexlmax](https://github.com/piexlmax)
 func (teacherService *TeacherService) DeleteTeacherByIds(ids request.IdsReq) (err error) {
-	err = global.GVA_DB.Delete(&[]InfoQuire.Teacher{}, "id in ?", ids.Ids).Error
+	err = global.GVA_DB.Unscoped().Delete(&[]InfoQuire.Teacher{}, "id in ?", ids.Ids).Error
 	return err
 }
 

@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 人类过期时间(一天)保持登录状态
 func ParseDuration(d string) (time.Duration, error) {
 	d = strings.TrimSpace(d)
 	dr, err := time.ParseDuration(d)

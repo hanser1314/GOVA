@@ -186,6 +186,16 @@ defineOptions({
   name: 'Login',
 })
 
+// 我的函数
+// 注册成功按钮
+const openRegister = () => {
+  ElNotification({
+    title: '注册成功',
+    message: '正在进入系统...',
+    position: 'bottom-right',
+  })
+}
+
 // const loginType = reactive({
 //   status: false,
 // })
@@ -193,8 +203,11 @@ defineOptions({
 const router = useRouter()
 // 验证函数
 const checkUsername = (rule, value, callback) => {
-  if (value.length < 5) {
-    return callback(new Error('请输入正确的用户名'))
+  if (value.length !== 12) {
+    return callback(new Error('请输入正确的用户名,长度为12位学号'))
+  } 
+  if (isNaN(value)){
+    return callback(new Error('请输入正确的用户名,不能有字母'))
   } else {
     callback()
   }
@@ -250,9 +263,9 @@ const login = async() => {
 }
 // 注册函数
 const register = async() => {
-  openRegister()
   return await userStore.Register(loginFormData)
 }
+
 const submitForm = () => {
   loginForm.value.validate(async(v) => {
     if (v) {
@@ -286,15 +299,6 @@ const checkInit = async() => {
       })
     }
   }
-}
-
-// 注册成功按钮
-const openRegister = () => {
-  ElNotification({
-    title: '注册成功',
-    message: '正在进入系统...',
-    position: 'bottom-right',
-  })
 }
 
 </script>

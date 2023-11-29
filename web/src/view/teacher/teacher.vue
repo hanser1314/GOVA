@@ -81,6 +81,8 @@
         <el-table
         stripe =true
         border =true
+        size = large
+        empty-text
         ref="multipleTable"
         style="width: 100%"
         tooltip-effect="dark"
@@ -142,18 +144,29 @@
             <el-form-item label="姓名:"  prop="tname" >
               <el-input v-model="formData.tname" :clearable="true"  placeholder="请输入姓名" />
             </el-form-item>
-            <el-form-item label="性别:"  prop="tsex" >
-              <el-input v-model="formData.tsex" :clearable="true"  placeholder="请输入性别" />
-            </el-form-item>
+            <el-form-item label="性别:" prop="tsex">
+              <el-select v-model="formData.tsex" placeholder="请选择性别">
+              <el-option label="男" value="男"></el-option> <el-option label="女" value="女"></el-option>
+              </el-select>
+              </el-form-item>
             <el-form-item label="年龄:"  prop="tage" >
               <el-input v-model.number="formData.tage" :clearable="true" placeholder="请输入年龄" />
             </el-form-item>
-            <el-form-item label="学历:"  prop="teb" >
-              <el-input v-model="formData.teb" :clearable="true"  placeholder="请输入学历" />
-            </el-form-item>
-            <el-form-item label="职称:"  prop="tpt" >
-              <el-input v-model="formData.tpt" :clearable="true"  placeholder="请输入职称" />
-            </el-form-item>
+             <el-form-item label="学历:" prop="teb">
+                  <el-select v-model="formData.teb" placeholder="请选择学历">
+                  <el-option label="博士" value="博士"></el-option>
+                  <el-option label="硕士" value="硕士"></el-option>
+                  <el-option label="学士" value="学士"></el-option>
+                  </el-select>
+                  </el-form-item>
+                  <el-form-item label="职称:" prop="tpt">
+                    <el-select v-model="formData.tpt" placeholder="请选择职称">
+                              <el-option label="助教" value="助教"></el-option>
+                              <el-option label="讲师" value="讲师"></el-option>
+                              <el-option label="副教授" value="副教授"></el-option>
+                              <el-option label="教授" value="教授"></el-option>
+                              </el-select>
+                    </el-form-item>
             <el-form-item label="主讲课程一:"  prop="cno1" >
               <el-input v-model="formData.cno1" :clearable="true"  placeholder="请输入主讲课程一" />
             </el-form-item>

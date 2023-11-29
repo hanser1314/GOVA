@@ -147,6 +147,34 @@
                 </li>
               </ul>
             </el-tab-pane>
+            <el-tab-pane  label="我的信息">
+              <li class="borderd pt-2.5">
+                  <!-- <p class="pb-2.5 text-xl text-gray-600"></p> -->
+                  <p class="pb-2.5 text-lg text-gray-400">
+                    <el-table
+                    stripe =true
+                    border =true
+                    size = large
+                    empty-text
+                     :data="tableData"
+                    tooltip-effect="dark"
+                    row-key="ID"
+                    highlight-current-row="true"
+                    style="width: 90%;"
+                    >
+                    <el-table-column align="left" label="学号" prop="sno" width="200"/>
+                    <el-table-column align="left" label="姓名" prop="sname" width="120"/>
+                    <el-table-column align="left" label="性别" prop="ssex" width="120"/>
+                    <el-table-column align="left" label="年龄" prop="sage" width="120"/>
+                    <el-table-column align="left" label="系别" prop="sdept" width="200"/>
+                  </el-table>
+                
+                  </p>
+                  <el-divider>
+                      <el-icon><star-filled /></el-icon>
+                    </el-divider>
+                </li>
+            </el-tab-pane>
           </el-tabs>
         </div>
       </div>
@@ -320,6 +348,38 @@ import { reactive, ref, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/pinia/modules/user'
 import SelectImage from '@/components/selectImage/selectImage.vue'
+// export {}
+// 我的import
+import { getStudentBySno } from '@/api/student'
+
+const userStore = useUserStore()
+
+const stuSno = ref('')
+const stuName = ref('')
+const stuDept = ref('')
+
+const page = ref(1)
+const total = ref(0)
+const pageSize = ref(10)
+const tableData = ref([])
+
+// const personuserStore = useUserStore()
+stuSno.value = userStore.userInfo.userName
+
+
+
+const getTableData = async() => {
+  const table = await getStudentBySno({ page: page.value, pageSize: pageSize.value, sno: stuSno.value })
+  if (table.code === 0) {
+    tableData.value = table.data.list
+    total.value = table.data.total
+    page.value = table.data.page
+    pageSize.value = table.data.pageSize
+// loading.value = false
+  }
+}
+
+getTableData()
 
 defineOptions({
   name: 'Person',
@@ -351,7 +411,6 @@ const rules = reactive({
   ],
 })
 
-const userStore = useUserStore()
 const modifyPwdForm = ref(null)
 const showPassword = ref(false)
 const pwdModify = ref({})

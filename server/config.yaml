@@ -12,7 +12,7 @@ autocode:
     server-api: /api/v1/%s
     server-plug: /plugin/%s
     server-initialize: /initialize
-    root: D:\学习\gin-vue-admin
+    root: D:\学习\gin-vue-admin\GOVA
     web-table: /view
     web: /web/src
     server-service: /service/%s
@@ -84,7 +84,7 @@ hua-wei-obs:
     secret-key: you-secret-key
 jwt:
     signing-key: 2a12d263-a230-48b8-b1ef-151b25f3ea95
-    expires-time: 7d
+    expires-time: 1h
     buffer-time: 1d
     issuer: qmPlus
 local:
@@ -194,7 +194,7 @@ system:
     addr: 8888
     iplimit-count: 15000
     iplimit-time: 3600
-    use-multipoint: false
+    use-multipoint: true
     use-redis: false
     use-mongo: false
 tencent-cos:

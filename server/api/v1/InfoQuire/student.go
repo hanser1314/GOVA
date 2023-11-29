@@ -184,3 +184,23 @@ func (studentApi *StudentApi) GetStudentByName(c *gin.Context) {
 		}, "获取成功", c)
 	}
 }
+
+func (studentApi *StudentApi) GetStudentBySno(c *gin.Context) {
+	var pageInfo InfoQuireReq.StudentSearchBySno
+	err := c.ShouldBindQuery(&pageInfo)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	if list, total, err := studentService.GetStudentInfoListBySno(pageInfo); err != nil {
+		global.GVA_LOG.Error("获取失败!", zap.Error(err))
+		response.FailWithMessage("获取失败", c)
+	} else {
+		response.OkWithDetailed(response.PageResult{
+			List:     list,
+			Total:    total,
+			Page:     pageInfo.Page,
+			PageSize: pageInfo.PageSize,
+		}, "获取成功", c)
+	}
+}

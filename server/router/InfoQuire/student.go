@@ -23,6 +23,7 @@ func (s *StudentRouter) InitStudentRouter(Router *gin.RouterGroup) {
 	{
 		studentRouterWithoutRecord.GET("findStudent", studentApi.FindStudent)           // 根据ID获取student表
 		studentRouterWithoutRecord.GET("getStudentList", studentApi.GetStudentList)     // 获取student表列表
-		studentRouterWithoutRecord.GET("getStudentByName", studentApi.GetStudentByName) //根据姓名获取student表
+		studentRouterWithoutRecord.GET("getStudentByName", studentApi.GetStudentByName) //根据姓名和年龄获取student表
+		studentRouterWithoutRecord.GET("getStudentBySno", studentApi.GetStudentBySno)   //根据学号获取student表
 	}
 }

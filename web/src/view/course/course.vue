@@ -36,6 +36,10 @@
             </el-popover>
         </div>
         <el-table
+        stripe =true
+        border =true
+        size = large
+        empty-text
         ref="multipleTable"
         style="width: 100%"
         tooltip-effect="dark"

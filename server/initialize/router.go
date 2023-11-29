@@ -89,6 +89,8 @@ func Routers() *gin.Engine {
 		InfoQuireRouter.InitCourseRouter(PrivateGroup)
 		InfoQuireRouter.InitDepartmentRouter(PrivateGroup)
 		InfoQuireRouter.InitSctRouter(PrivateGroup)
+		InfoQuireRouter.InitOptCourseRouter(PrivateGroup)
+		InfoQuireRouter.InitSelectedCourseRouter(PrivateGroup)
 	}
 
 	global.GVA_LOG.Info("router register success")
