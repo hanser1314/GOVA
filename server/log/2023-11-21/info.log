@@ -1,4 +1,0 @@
-[github.com/flipped-aurora/gin-vue-admin/server]2023/11/21 - 18:02:49.013	[34minfo[0m	D:/学习/gin-vue-admin/server/initialize/gorm.go:60	register table success
-[github.com/flipped-aurora/gin-vue-admin/server]2023/11/21 - 18:02:49.016	[34minfo[0m	D:/学习/gin-vue-admin/server/initialize/router.go:49	register swagger handler
-[github.com/flipped-aurora/gin-vue-admin/server]2023/11/21 - 18:02:49.023	[34minfo[0m	D:/学习/gin-vue-admin/server/initialize/router.go:94	router register success
-[github.com/flipped-aurora/gin-vue-admin/server]2023/11/21 - 18:02:49.033	[34minfo[0m	D:/学习/gin-vue-admin/server/core/server.go:41	server run success on 	{"address": ":8888"}

@@ -22,7 +22,7 @@
       </el-form>
     </div>
     <div class="gva-table-box">
-        <div class="gva-btn-list">
+        <!-- <div class="gva-btn-list">
             <el-button type="primary" icon="plus" @click="openDialog">新增</el-button>
             <el-popover v-model:visible="deleteVisible" :disabled="!multipleSelection.length" placement="top" width="160">
             <p>确定要删除吗？</p>
@@ -34,7 +34,7 @@
                 <el-button icon="delete" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="deleteVisible = true">删除</el-button>
             </template>
             </el-popover>
-        </div>
+        </div> -->
         <el-table
         stripe =true
         border = true
@@ -56,7 +56,7 @@
         <el-table-column align="left" label="课程号" prop="cno" width="120" />
         <el-table-column align="left" label="教工号" prop="tno" width="120" />
         <el-table-column align="left" label="成绩" prop="grade" width="120" />
-        <el-table-column align="left" label="操作">
+        <!-- <el-table-column align="left" label="操作">
             <template #default="scope">
             <el-button type="primary" link class="table-button" @click="getDetails(scope.row)">
                 <el-icon style="margin-right: 5px"><InfoFilled /></el-icon>
@@ -65,7 +65,7 @@
             <el-button type="primary" link icon="edit" class="table-button" @click="updateSelectedCourseFunc(scope.row)">变更</el-button>
             <el-button type="primary" link icon="delete" @click="deleteRow(scope.row)">删除</el-button>
             </template>
-        </el-table-column>
+        </el-table-column> -->
         </el-table>
         <div class="gva-pagination">
             <el-pagination
