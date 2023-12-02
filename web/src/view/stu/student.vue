@@ -15,15 +15,17 @@
        —
       <el-date-picker v-model="searchInfo.endCreatedAt" type="datetime" placeholder="结束日期" :disabled-date="time=> searchInfo.startCreatedAt ? time.getTime() < searchInfo.startCreatedAt.getTime() : false"></el-date-picker>
       </el-form-item>
+
         <el-form-item>
           <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
           <el-button icon="refresh" @click="onReset">重置</el-button>
         </el-form-item>
 
+
         <el-form-item>
           <el-input
            placeholder="姓名"
-           v-model="searchInfo.tname"
+           v-model="searchInfo.sname"
            type="text"
            clearable
             >
@@ -36,8 +38,8 @@
 
         <el-form-item>
           <el-input
-           placeholder="教工号"
-           v-model="searchInfo.tno"
+           placeholder="年龄"
+           v-model="searchInfo.sage"
            type="text"
            clearable
             >
@@ -50,15 +52,37 @@
        
 
         <el-form-item>
-          <el-button type="primary" icon="search" @click="handleQuery">查询2</el-button>
+          <el-button type="primary" icon="search" @click="handleQueryName">查询2</el-button>
         </el-form-item>
 
-
-
+       
       </el-form>
-
     </div>
 
+      <!-- <div class="my-search">
+        <el-form :model="searchInfo">
+         
+       
+        <el-form-item>
+          <el-input class="query-input"
+           placeholder="Type something"
+           v-model="searchInfo.sname"
+           type="text"
+           clearable
+            >
+                <template #prefix>
+                  <el-icon class="el-input__icon"><search /></el-icon>
+                </template>
+              </el-input>
+     
+        </el-form-item>
+          </el-form>
+
+        <el-form-item>
+          <el-button type="primary" icon="search" @click="handleQueryName">查询2</el-button>
+        </el-form-item>
+     
+      </div> -->
 
     <div class="gva-table-box">
         <div class="gva-btn-list">
@@ -74,9 +98,16 @@
             </template>
             </el-popover>
 
-               <el-button type="success" icon="Printer" @click="onPrint">打印</el-button>
+
+            <!-- <el-button type="primary"  @click="onPrint">
+              <el-icon><Printer /></el-icon>
+              打印</el-button> -->
+
+              <el-button type="success" icon="Printer" @click="onPrint">打印</el-button>
 
         </div>
+
+
 
         <el-table
         stripe =true
@@ -88,36 +119,36 @@
         tooltip-effect="dark"
         :data="tableData"
         row-key="ID"
-        id="box"
         @selection-change="handleSelectionChange"
-        @sort-change="sortChange"
+        id="box"
         >
         <el-table-column type="selection" width="55" />
         <el-table-column align="left" label="日期" width="180">
             <template #default="scope">{{ formatDate(scope.row.CreatedAt) }}</template>
         </el-table-column>
-        <el-table-column sortable align="left" label="教工号" prop="tno" width="120" />
-        <el-table-column align="left" label="姓名" prop="tname" width="120" />
-        <el-table-column align="left" label="性别" prop="tsex" width="120" />
-        <el-table-column align="left" label="年龄" prop="tage" width="120" />
-        <el-table-column align="left" label="学历" prop="teb" width="120" />
-        <el-table-column align="left" label="职称" prop="tpt" width="120" />
-        <el-table-column align="left" label="主讲课程一" prop="cno1" width="120" />
-        <el-table-column align="left" label="主讲课程二" prop="cno2" width="120" />
-        <el-table-column align="left" label="主讲课程三" prop="cno3" width="120" />
+        <el-table-column align="left" label="学号" prop="sno" width="120" />
+        <el-table-column align="left" label="姓名" prop="sname" width="120" />
+        <el-table-column align="left" label="性别" prop="ssex" width="120" />
+        <el-table-column align="left" label="年龄" prop="sage" width="120" />
+        <el-table-column align="left" label="系别" prop="sdept" width="120" />
+        
+
         <el-table-column align="left" label="操作">
+
             <template #default="scope">
             <el-button type="primary" link class="table-button" @click="getDetails(scope.row)">
-                <el-icon style="margin-right: 5px"><InfoFilled /></el-icon>
+               <el-icon con style="margin-right: 5px"><InfoFilled /></el-icon>
                 查看详情
             </el-button>
-            <el-button type="primary" link icon="edit" class="table-button" @click="updateTeacherFunc(scope.row)">变更</el-button>
+            <el-button type="primary" link icon="edit" class="table-button" @click="updateStudentFunc(scope.row)">变更</el-button>
             <el-button type="primary" link icon="delete" @click="deleteRow(scope.row)">删除</el-button>
+            <!-- <el-button type="primary" link icon="delete" @click="onPrint">打印</el-button> -->
             </template>
         </el-table-column>
 
 
         </el-table>
+       
 
 
         <div class="gva-pagination">
@@ -131,50 +162,31 @@
             @size-change="handleSizeChange"
             />
         </div>
-    </div>
+
+
+</div>
 
 
 
     <el-dialog v-model="dialogFormVisible" :before-close="closeDialog" :title="type==='create'?'添加':'修改'" destroy-on-close>
       <el-scrollbar height="500px">
           <el-form :model="formData" label-position="right" ref="elFormRef" :rules="rule" label-width="80px">
-            <el-form-item label="教工号:"  prop="tno" >
-              <el-input v-model="formData.tno" :clearable="true"  placeholder="请输入教工号" />
+            <el-form-item label="学号:"  prop="sno" >
+              <el-input v-model="formData.sno" :clearable="true"  placeholder="请输入学号" />
             </el-form-item>
-            <el-form-item label="姓名:"  prop="tname" >
-              <el-input v-model="formData.tname" :clearable="true"  placeholder="请输入姓名" />
+            <el-form-item label="姓名:"  prop="sname" >
+              <el-input v-model="formData.sname" :clearable="true"  placeholder="请输入姓名" />
             </el-form-item>
-            <el-form-item label="性别:" prop="tsex">
-              <el-select v-model="formData.tsex" placeholder="请选择性别">
-              <el-option label="男" value="男"></el-option> <el-option label="女" value="女"></el-option>
-              </el-select>
+             <el-form-item label="性别:" prop="ssex"> 
+              <el-select v-model="formData.ssex" placeholder="请选择性别"> 
+              <el-option label="男" value="男"></el-option> <el-option label="女" value="女"></el-option> 
+              </el-select> 
               </el-form-item>
-            <el-form-item label="年龄:"  prop="tage" >
-              <el-input v-model.number="formData.tage" :clearable="true" placeholder="请输入年龄" />
+            <el-form-item label="年龄:"  prop="sage" >
+              <el-input v-model.number="formData.sage" :clearable="true" placeholder="请输入年龄,大于14岁且小于24岁" />
             </el-form-item>
-             <el-form-item label="学历:" prop="teb">
-                  <el-select v-model="formData.teb" placeholder="请选择学历">
-                  <el-option label="博士" value="博士"></el-option>
-                  <el-option label="硕士" value="硕士"></el-option>
-                  <el-option label="学士" value="学士"></el-option>
-                  </el-select>
-                  </el-form-item>
-                  <el-form-item label="职称:" prop="tpt">
-                    <el-select v-model="formData.tpt" placeholder="请选择职称">
-                              <el-option label="助教" value="助教"></el-option>
-                              <el-option label="讲师" value="讲师"></el-option>
-                              <el-option label="副教授" value="副教授"></el-option>
-                              <el-option label="教授" value="教授"></el-option>
-                              </el-select>
-                    </el-form-item>
-            <el-form-item label="主讲课程一:"  prop="cno1" >
-              <el-input v-model="formData.cno1" :clearable="true"  placeholder="请输入主讲课程一" />
-            </el-form-item>
-            <el-form-item label="主讲课程二:"  prop="cno2" >
-              <el-input v-model="formData.cno2" :clearable="true"  placeholder="请输入主讲课程二" />
-            </el-form-item>
-            <el-form-item label="主讲课程三:"  prop="cno3" >
-              <el-input v-model="formData.cno3" :clearable="true"  placeholder="请输入主讲课程三" />
+            <el-form-item label="系别:"  prop="sdept" >
+              <el-input v-model="formData.sdept" :clearable="true"  placeholder="请输入系别" />
             </el-form-item>
           </el-form>
       </el-scrollbar>
@@ -189,32 +201,20 @@
     <el-dialog v-model="detailShow" style="width: 800px" lock-scroll :before-close="closeDetailShow" title="查看详情" destroy-on-close>
       <el-scrollbar height="550px">
         <el-descriptions column="1" border>
-                <el-descriptions-item label="教工号">
-                        {{ formData.tno }}
+                <el-descriptions-item label="学号">
+                        {{ formData.sno }}
                 </el-descriptions-item>
                 <el-descriptions-item label="姓名">
-                        {{ formData.tname }}
+                        {{ formData.sname }}
                 </el-descriptions-item>
                 <el-descriptions-item label="性别">
-                        {{ formData.tsex }}
+                        {{ formData.ssex }}
                 </el-descriptions-item>
                 <el-descriptions-item label="年龄">
-                        {{ formData.tage }}
+                        {{ formData.sage }}
                 </el-descriptions-item>
-                <el-descriptions-item label="学历">
-                        {{ formData.teb }}
-                </el-descriptions-item>
-                <el-descriptions-item label="职称">
-                        {{ formData.tpt }}
-                </el-descriptions-item>
-                <el-descriptions-item label="主讲课程一">
-                        {{ formData.cno1 }}
-                </el-descriptions-item>
-                <el-descriptions-item label="主讲课程二">
-                        {{ formData.cno2 }}
-                </el-descriptions-item>
-                <el-descriptions-item label="主讲课程三">
-                        {{ formData.cno3 }}
+                <el-descriptions-item label="系别">
+                        {{ formData.sdept }}
                 </el-descriptions-item>
         </el-descriptions>
       </el-scrollbar>
@@ -224,14 +224,14 @@
 
 <script setup>
 import {
-  createTeacher,
-  deleteTeacher,
-  deleteTeacherByIds,
-  updateTeacher,
-  findTeacher,
-  getTeacherList,
-  getTeacherByNameOrTno
-} from '@/api/teacher'
+  createStudent,
+  deleteStudent,
+  deleteStudentByIds,
+  updateStudent,
+  findStudent,
+  getStudentList,
+  getStudentByName
+} from '@/api/student'
 
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict, ReturnArrImg, onDownloadFile } from '@/utils/format'
@@ -239,101 +239,39 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive } from 'vue'
 import printJS from 'print-js'
 
+
 defineOptions({
-    name: 'Teacher'
+    name: 'Student'
 })
 
-//打印按钮
+const multipleTable = ref(null)
+const loading = ref(true)
+
+// 打印按钮
 const onPrint = () => {
-  //获取元素
+  // 获取元素
   // const node = multipleTable.value;
   printJS({
-    printable: "box", // 标签元素id
-    type: "html",
-    targetStyles: ["*"], //添加样式
+    printable: 'box', // 标签元素id
+    type: 'html',
+    targetStyles: ['*'], // 添加样式
+    maxWidth: '1000px'
     // scanStyles: false
-  });
-};
-
-
+  })
+}
 
 // 自动化生成的字典（可能为空）以及字段
 const formData = ref({
-        tno: '',
-        tname: '',
-        tsex: '',
-        tage: 0,
-        teb: '',
-        tpt: '',
-        cno1: '',
-        cno2: '',
-        cno3: '',
+        sno: '',
+        sname: '',
+        ssex: '',
+        sage: 0,
+        sdept: '',
         })
 
 
 // 验证规则
 const rule = reactive({
-               tno : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-               {
-                   whitespace: true,
-                   message: '不能只输入空格',
-                   trigger: ['input', 'blur'],
-              }
-              ],
-               tname : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-               {
-                   whitespace: true,
-                   message: '不能只输入空格',
-                   trigger: ['input', 'blur'],
-              }
-              ],
-               tsex : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-               {
-                   whitespace: true,
-                   message: '不能只输入空格',
-                   trigger: ['input', 'blur'],
-              }
-              ],
-               tage : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-              ],
-               teb : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-               {
-                   whitespace: true,
-                   message: '不能只输入空格',
-                   trigger: ['input', 'blur'],
-              }
-              ],
-               cno1 : [{
-                   required: true,
-                   message: '',
-                   trigger: ['input','blur'],
-               },
-               {
-                   whitespace: true,
-                   message: '不能只输入空格',
-                   trigger: ['input', 'blur'],
-              }
-              ],
 })
 
 const searchRule = reactive({
@@ -355,18 +293,18 @@ const searchRule = reactive({
 const elFormRef = ref()
 const elSearchFormRef = ref()
 
+
+
+
+
 // =========== 表格控制部分 ===========
 const page = ref(1)
 const total = ref(0)
 const pageSize = ref(10)
 const tableData = ref([])
 const searchInfo = ref({})
-// 排序
-const sortChange = ({ prop, order }) => {
-  searchInfo.value.sort = prop
-  searchInfo.value.order = order
-  getTableData()
-}
+
+// const tableDataCopy = Object.assign(tableData)
 
 // 重置
 const onReset = () => {
@@ -384,11 +322,20 @@ const onSubmit = () => {
   })
 }
 
-const handleQuery = () => {
+const handleQueryName = () => {
+    // if (val.length > 0) {
+    //   tableData.value = tableData.value.filter(item => (item.value).toLowerCase().match(val.toLowerCase()))
+    // } else {
+    //   tableData.value = tableDataCopy.value
+    // }
+    // elSearchFormRef.value?.validate(async(valid) => {
+    //   if(!valid) return
           page.value = 1
           pageSize.value = 10
-          getTableDataByNameOrTno()
+          getTableDataByName()
+    // })
 }
+
 
 // 分页
 const handleSizeChange = (val) => {
@@ -404,18 +351,18 @@ const handleCurrentChange = (val) => {
 
 // 查询
 const getTableData = async() => {
-  const table = await getTeacherList({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
+  const table = await getStudentList({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
   if (table.code === 0) {
     tableData.value = table.data.list
     total.value = table.data.total
     page.value = table.data.page
     pageSize.value = table.data.pageSize
+    loading.value = false
   }
 }
 
-
-const getTableDataByNameOrTno = async() => {
-    const table = await getTeacherByNameOrTno({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
+const getTableDataByName = async() => {
+    const table = await getStudentByName({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
     if (table.code === 0) {
       tableData.value = table.data.list
       total.value = table.data.total
@@ -423,7 +370,6 @@ const getTableDataByNameOrTno = async() => {
       pageSize.value = table.data.pageSize
     }
 }
-
 
 getTableData()
 
@@ -451,7 +397,7 @@ const deleteRow = (row) => {
         cancelButtonText: '取消',
         type: 'warning'
     }).then(() => {
-            deleteTeacherFunc(row)
+            deleteStudentFunc(row)
         })
     }
 
@@ -473,7 +419,7 @@ const onDelete = async() => {
         multipleSelection.value.map(item => {
           ids.push(item.ID)
         })
-      const res = await deleteTeacherByIds({ ids })
+      const res = await deleteStudentByIds({ ids })
       if (res.code === 0) {
         ElMessage({
           type: 'success',
@@ -491,19 +437,19 @@ const onDelete = async() => {
 const type = ref('')
 
 // 更新行
-const updateTeacherFunc = async(row) => {
-    const res = await findTeacher({ ID: row.ID })
+const updateStudentFunc = async(row) => {
+    const res = await findStudent({ ID: row.ID })
     type.value = 'update'
     if (res.code === 0) {
-        formData.value = res.data.reteacher
+        formData.value = res.data.restudent
         dialogFormVisible.value = true
     }
 }
 
 
 // 删除行
-const deleteTeacherFunc = async (row) => {
-    const res = await deleteTeacher({ ID: row.ID })
+const deleteStudentFunc = async (row) => {
+    const res = await deleteStudent({ ID: row.ID })
     if (res.code === 0) {
         ElMessage({
                 type: 'success',
@@ -533,9 +479,9 @@ const openDetailShow = () => {
 // 打开详情
 const getDetails = async (row) => {
   // 打开弹窗
-  const res = await findTeacher({ ID: row.ID })
+  const res = await findStudent({ ID: row.ID })
   if (res.code === 0) {
-    formData.value = res.data.reteacher
+    formData.value = res.data.restudent
     openDetailShow()
   }
 }
@@ -545,15 +491,11 @@ const getDetails = async (row) => {
 const closeDetailShow = () => {
   detailShow.value = false
   formData.value = {
-          tno: '',
-          tname: '',
-          tsex: '',
-          tage: 0,
-          teb: '',
-          tpt: '',
-          cno1: '',
-          cno2: '',
-          cno3: '',
+          sno: '',
+          sname: '',
+          ssex: '',
+          sage: 0,
+          sdept: '',
           }
 }
 
@@ -568,15 +510,11 @@ const openDialog = () => {
 const closeDialog = () => {
     dialogFormVisible.value = false
     formData.value = {
-        tno: '',
-        tname: '',
-        tsex: '',
-        tage: 0,
-        teb: '',
-        tpt: '',
-        cno1: '',
-        cno2: '',
-        cno3: '',
+        sno: '',
+        sname: '',
+        ssex: '',
+        sage: 0,
+        sdept: '',
         }
 }
 // 弹窗确定
@@ -586,13 +524,13 @@ const enterDialog = async () => {
               let res
               switch (type.value) {
                 case 'create':
-                  res = await createTeacher(formData.value)
+                  res = await createStudent(formData.value)
                   break
                 case 'update':
-                  res = await updateTeacher(formData.value)
+                  res = await updateStudent(formData.value)
                   break
                 default:
-                  res = await createTeacher(formData.value)
+                  res = await createStudent(formData.value)
                   break
               }
               if (res.code === 0) {
@@ -605,6 +543,9 @@ const enterDialog = async () => {
               }
       })
 }
+
+
+
 
 </script>
 

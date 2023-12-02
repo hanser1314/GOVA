@@ -263,7 +263,7 @@
               v-model="phoneForm.code"
               class="flex-1"
               autocomplete="off"
-              placeholder="请自行设计短信服务，此处为模拟随便写"
+              placeholder="此处为模拟随便写"
               style="width:300px"
             />
             <el-button
@@ -313,7 +313,7 @@
             <el-input
               v-model="emailForm.code"
               class="flex-1"
-              placeholder="请自行设计邮件服务，此处为模拟随便写"
+              placeholder="此处为模拟随便写"
               autocomplete="off"
               style="width:300px"
             />

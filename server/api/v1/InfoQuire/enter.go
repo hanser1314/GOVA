@@ -6,6 +6,4 @@ type ApiGroup struct {
 	CourseApi
 	DepartmentApi
 	SctApi
-	OptCourseApi
-	SelectedCourseApi
 }

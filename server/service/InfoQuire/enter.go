@@ -6,6 +6,4 @@ type ServiceGroup struct {
 	CourseService
 	DepartmentService
 	SctService
-	OptCourseService
-	SelectedCourseService
 }

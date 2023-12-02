@@ -88,13 +88,13 @@ func (teacherService *TeacherService) GetTeacherInfoListByNameOrTno(info InfoQui
 	var teachers []InfoQuire.Teacher
 	// 如果有条件搜索 下方会自动创建搜索语句
 	if info.Tname != "" && info.Tno != "" {
-		db = db.Where("tname = ? or tno = ?", info.Tname, info.Tno)
+		db = db.Where("tname like ? or tno = ?", "%"+info.Tname+"%", info.Tno)
 	}
 	if info.Tname == "" && info.Tno != "" {
 		db = db.Where("tno = ?", info.Tno)
 	}
 	if info.Tname != "" && info.Tno == "" {
-		db = db.Where("tname = ? ", info.Tname)
+		db = db.Where("tname like ? ", "%"+info.Tname+"%")
 	}
 	err = db.Count(&total).Error
 	if err != nil {

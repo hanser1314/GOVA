@@ -6,10 +6,11 @@
       @click="handleReload"
     />
     <Screenfull class="search-icon" />
-    <div
+    <!-- 客服图标 -->
+    <!-- <div
       class="gvaIcon gvaIcon-customer-service"
       @click="toService"
-    />
+    /> -->
   </div>
 </template>
 

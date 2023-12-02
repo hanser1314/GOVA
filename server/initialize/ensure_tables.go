@@ -14,6 +14,7 @@ const initOrderEnsureTables = system.InitOrderExternal - 1
 type ensureTables struct{}
 
 // auto run
+// 修改
 func init() {
 	system.RegisterInit(initOrderEnsureTables, &ensureTables{})
 }

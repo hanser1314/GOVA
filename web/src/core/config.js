@@ -3,7 +3,7 @@
  */
 
 const config = {
-  appName: 'GOVA管理系统',
+  appName: '学生信息管理系统',
   // appLogo: 'https://www.gin-vue-admin.com/img/logo.png',
    appLogo: 'https://cdn.jsdelivr.net/gh/hanser1314/myPictureBed/myPictureBed/202311232059986.png',
   showViteLogo: true

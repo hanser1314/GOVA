@@ -16,3 +16,56 @@
 [github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:22:44.194	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
 [github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:22:44.201	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
 [github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:22:44.211	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:53:35.276	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:53:35.277	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:53:35.278	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:53:35.286	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 12:53:35.288	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 13:01:30.481	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 13:01:30.482	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 13:01:30.484	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 13:01:30.492	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 13:01:30.499	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:35:23.414	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:35:23.536	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:35:23.574	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:35:23.592	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:36:59.100	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:36:59.103	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:36:59.108	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:36:59.158	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 14:36:59.162	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 15:11:00.051	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 15:11:00.058	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 15:11:00.062	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 15:11:00.084	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 15:11:00.098	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 16:07:22.138	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 16:07:22.142	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 16:07:22.147	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 16:07:22.168	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 16:07:22.182	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 17:04:00.912	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/api/v1/system/sys_initdb.go:57	数据库无需初始化
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:10:28.626	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:10:28.728	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:10:28.750	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:10:28.767	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:11:14.269	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:11:14.273	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:11:14.277	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:49	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:11:14.300	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:96	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:11:14.305	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:20:50.954	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:20:50.956	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:20:50.957	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:35	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:20:50.963	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:77	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 18:20:50.967	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:33.193	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:33.290	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:35	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:33.295	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:77	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:33.302	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:54.172	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/gorm.go:60	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:54.173	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:54.175	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:35	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:54.181	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/initialize/router.go:77	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/11/30 - 20:15:54.184	[34minfo[0m	D:/学习/gin-vue-admin/GOVA/server/core/server.go:41	server run success on 	{"address": ":8888"}

@@ -6,6 +6,4 @@ type RouterGroup struct {
 	CourseRouter
 	DepartmentRouter
 	SctRouter
-	OptCourseRouter
-	SelectedCourseRouter
 }

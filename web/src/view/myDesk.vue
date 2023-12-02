@@ -109,11 +109,17 @@
               :xs="24"
               :sm="6"
             >
-              <dashboard-table />
+            <el-calendar v-model="value" />
+
+              <!-- <dashboard-table /> -->
             </el-col>
           </el-row>
         </div>
       </div>
+
+
+
+
   </div>
 </template>
   
@@ -141,50 +147,7 @@ const userStore = useUserStore()
 
 // username.value = userStore.userInfo.authority.authorityName
 username.value = userStore.userInfo.userName
-// const toolCards = ref([
-//   {
-//     label: '用户管理',
-//     icon: 'monitor',
-//     name: 'user',
-//     color: '#ff9c6e',
-//     bg: 'rgba(255, 156, 110,.3)'
-//   },
-//   {
-//     label: '角色管理',
-//     icon: 'setting',
-//     name: 'authority',
-//     color: '#69c0ff',
-//     bg: 'rgba(105, 192, 255,.3)'
-//   },
-//   {
-//     label: '菜单管理',
-//     icon: 'menu',
-//     name: 'menu',
-//     color: '#b37feb',
-//     bg: 'rgba(179, 127, 235,.3)'
-//   },
-//   {
-//     label: '代码生成器',
-//     icon: 'cpu',
-//     name: 'autoCode',
-//     color: '#ffd666',
-//     bg: 'rgba(255, 214, 102,.3)'
-//   },
-//   {
-//     label: '表单生成器',
-//     icon: 'document-checked',
-//     name: 'formCreate',
-//     color: '#ff85c0',
-//     bg: 'rgba(255, 133, 192,.3)'
-//   },
-//   {
-//     label: '关于我们',
-//     icon: 'user',
-//     name: 'about',
-//     color: '#5cdbd3',
-//     bg: 'rgba(92, 219, 211,.3)'
-//   }
-// ])
+const value = ref(new Date())
 
 const router = useRouter()
 

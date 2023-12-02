@@ -20,13 +20,13 @@
         <el-form-item label="职称:" prop="tpt">
           <el-input v-model="formData.tpt" :clearable="true" placeholder="请输入" />
        </el-form-item>
-        <el-form-item label="主讲课程一:" prop="cno1">
+        <el-form-item label="主讲课程一" prop="cno1">
           <el-input v-model="formData.cno1" :clearable="true" placeholder="请输入" />
        </el-form-item>
-        <el-form-item label="主讲课程二:" prop="cno2">
+        <el-form-item label="主讲课程二" prop="cno2">
           <el-input v-model="formData.cno2" :clearable="true" placeholder="请输入" />
        </el-form-item>
-        <el-form-item label="主讲课程三:" prop="cno3">
+        <el-form-item label="主讲课程三" prop="cno3">
           <el-input v-model="formData.cno3" :clearable="true" placeholder="请输入" />
        </el-form-item>
         <el-form-item>
